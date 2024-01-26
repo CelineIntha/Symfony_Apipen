@@ -1,13 +1,10 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Api;
 
-use Faker\Factory;
 use App\Entity\Pen;
 use OpenApi\Attributes as OA;
 use App\Repository\PenRepository;
-use App\Repository\TypeRepository;
-use App\Repository\MaterialRepository;
 use App\Service\PenService;
 use Doctrine\ORM\EntityManagerInterface;
 use Nelmio\ApiDocBundle\Annotation\Model;
@@ -17,9 +14,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 
 #[Route('/api')]
+
 class PenController extends AbstractController
 {
     #[Route('/pens', name: 'app_pens', methods: ['GET'])]

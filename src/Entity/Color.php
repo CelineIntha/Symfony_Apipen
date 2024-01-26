@@ -24,6 +24,11 @@ class Color
     #[ORM\ManyToMany(targetEntity: Pen::class, mappedBy: 'colors')]
     private Collection $pens;
 
+    public function __toString(): string
+    {
+        return $this->name ?? '';
+    }
+
     public function __construct()
     {
         $this->pens = new ArrayCollection();

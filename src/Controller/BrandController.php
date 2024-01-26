@@ -14,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 #[Route('/api')]
+
 class BrandController extends AbstractController
 {
     #[Route('/brands', name: 'app_brands', methods: ['GET'])]
