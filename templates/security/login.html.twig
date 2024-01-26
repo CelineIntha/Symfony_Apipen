@@ -9,14 +9,34 @@
     {% endif %}
 
     {% if app.user %}
+    	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link active" href="{{ path('app_admin_dashboard')}}">
+					<span class="sr-only">(current)</span>Accueil</a>
+				<a class="nav-item nav-link" href="{{ path('app_admin_pen_index')}}">Stylos</a>
+				<a class="nav-item nav-link" href="{{ path('app_admin_brand_index')}}">Marques</a>
+				<a class="nav-item nav-link" href="{{ path('app_admin_color_index')}}">Couleurs</a>
+				<a class="nav-item nav-link" href="{{ path('app_admin_material_index')}}">Matériaux</a>
+				<a class="nav-item nav-link" href="{{ path('app_admin_type_index')}}">Types</a>
+				<a class="nav-item nav-link" href="{{ path('app_admin_user_index')}}">Utilisateurs</a>
+				<a class="nav-item nav-link" href="/api/doc">API Docs</a>
+				<a class="nav-item nav-link" href="/logout">Se déconnecter</a>
+			</div>
+		</div>
+	</nav>
         <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            You are logged in as {{ app.user.userIdentifier }}
         </div>
         <div class="mb-3">
         <a href="{{ path('app_admin_dashboard') }}">Go to dashboard</a>
         </div>
     {% endif %}
 
+    {% if not app.user %}
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputEmail">Email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
@@ -31,4 +51,5 @@
         Sign in
     </button>
 </form>
+    {% endif %}
 {% endblock %}

@@ -5,7 +5,11 @@
 {% block body %}
 
 {% include('admin/navbar.html.twig') %}
-    <h1>Brand index</h1>
+
+<div class="container">
+    <h1 class="mt-3">Liste des marques</h1>
+
+    <a href="{{ path('app_admin_brand_new') }}">Create new</a>
 
     <table class="table">
         <thead>
@@ -33,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_brand_new') }}">Create new</a>
+</div>
 {% endblock %}
